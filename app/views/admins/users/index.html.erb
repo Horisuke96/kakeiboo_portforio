@@ -1,0 +1,27 @@
+<table>
+  <thead>
+    <tr>
+      <th>会員ID</th>
+      <th>氏名</th>
+      <th>メールアドレス</th>
+      <th>ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.each do |user| %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= link_to full_name(user), admin_user_path(user) %></td>
+      <td><% user.emial %></td>
+      <td>
+        <% if uer.is_deleted == true %>
+        <p>退会</p>
+        <% else %>
+        <p>有効</p>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+
+</table>
