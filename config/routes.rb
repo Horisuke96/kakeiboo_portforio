@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :users do
-    get 'homes/top'
-    get 'homes/about'
-  end
 # admin
   devise_for :admins, controllers: {
     sessions:       'admins/sessions',
@@ -22,9 +18,11 @@ Rails.application.routes.draw do
     registrations:  'users/registrations'
 }
 
-  root to: "user/homes#top"
-  get "/about" => "user/homes#about"
+  root to: "users/homes#top"
+  get "/about" => "users/homes#about"
 
+  scope module: :users do
+  end
 
 
   end
