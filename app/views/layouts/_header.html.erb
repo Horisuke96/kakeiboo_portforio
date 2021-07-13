@@ -1,0 +1,32 @@
+<div>家計boo</div>
+if user_signed_in? %>
+  <div>こんにちは</div>
+<% elsif admin_signed_in? %>
+  <div>こんにちは管理者さん</div>
+<% else %>
+  <div>こんにちはゲストさん</div>
+<% end %>
+
+<% if user_signed_in? %>
+  <div class="d-flex">
+    <div class="float"><%= link_to 'My page', new_user_session_path, class: 'nav-link text-dark' %></div>
+    <div class="float"><%= link_to 'Products', new_user_session_path, class: 'nav-link text-dark' %></div>
+    <div class="float"><%= link_to 'Cart', new_user_session_path, class: 'nav-link text-dark' %></div>
+    <div class="float"><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %></div>
+  </div>
+<% elsif admin_signed_in? %>
+  <div class="d-flex">
+    <div class="float"><%= link_to 'Products', new_user_session_path, class: 'nav-link text-dark' %></div>
+    <div class="float"><%= link_to 'Customers', new_user_session_path, class: 'nav-link text-dark' %></div>
+    <div class="float"><%= link_to 'Orders', new_user_session_path, class: 'nav-link text-dark' %></div>
+    <div class="float"><%= link_to 'Genres', new_user_session_path, class: 'nav-link text-dark' %></div>
+    <div class="float"><%= link_to 'Log out', destroy_admin_session_path,method: :delete, class: 'nav-link text-dark' %></div>
+  </div>
+<% else %>
+  <div class="d-flex">
+    <div class="float"><%= link_to 'About', new_user_session_path, class: 'nav-link text-dark' %></div>
+    <div class="float"><%= link_to 'Products', new_user_session_path, class: 'nav-link text-dark' %></div>
+    <div class="float"><%= link_to 'Sign up', new_user_registration_path, class: 'nav-link text-dark' %></div>
+    <div class="float"><%= link_to 'Login', new_user_session_path, class: 'nav-link text-dark'%></div>
+  </div>
+<% end %>
