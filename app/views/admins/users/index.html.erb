@@ -8,13 +8,13 @@
     </tr>
   </thead>
   <tbody>
-    <% @user.each do |user| %>
+    <% @users.each do |user| %>
     <tr>
       <td><%= user.id %></td>
-      <td><%= link_to full_name(user), admin_user_path(user) %></td>
-      <td><% user.emial %></td>
+      <td><%= link_to full_name(user), admins_user_path(user) %></td>
+      <td><%= user.email %></td>
       <td>
-        <% if uer.is_deleted == true %>
+        <% if user.is_deleted == true %>
         <p>退会</p>
         <% else %>
         <p>有効</p>
