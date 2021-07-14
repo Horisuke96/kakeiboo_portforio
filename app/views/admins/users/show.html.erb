@@ -1,2 +1,11 @@
-<h1>Admins::Users#show</h1>
-<p>Find me in app/views/admins/users/show.html.erb</p>
+＜プロフィール画面＞
+<!--背景画像を各自が設定-->
+<div class="background-image">
+</div>
+<div><%= attachment_image_tag(@user, :profile_image, size: "200x200", fallback: "sample_kakeiboo.jpg") %></div>
+<div><%= full_name(@user) %></div>
+<div><%= @user.introduction %></div>
+<div><%= link_to 'プロフィールを編集する', edit_admins_user_path(@user) %></div>
+
+
+

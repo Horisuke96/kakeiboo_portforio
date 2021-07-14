@@ -1,2 +1,68 @@
-<h1>Admins::Users#edit</h1>
-<p>Find me in app/views/admins/users/edit.html.erb</p>
+<h1>会員情報編集</h1>
+
+<%= form_with(model: @user, url:admins_user_path(@user), local: true ,method: :put) do |f| %>
+  <div>会員ID</div>
+  <div><%= @user.id %></div>
+
+  <div class="field">
+    <%= f.label :last_name, "姓" %><br />
+    <%= f.text_field :last_name %><br />
+    <%= f.label :first_name, "名" %><br />
+    <%= f.text_field :first_name %><br />
+  </div>
+
+  <div class="field">
+    <%= f.label :kana_last_name, "セイ" %><br />
+    <%= f.text_field :kana_last_name %><br />
+    <%= f.label :kana_first_name, "メイ" %><br />
+    <%= f.text_field :kana_first_name %><br />
+  </div>
+
+  <div class="field">
+    <%= f.label :postal_code, "郵便番号" %><br />
+    <%= f.text_field :postal_code %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address, "住所" %><br />
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone_number, "電話番号" %><br />
+    <%= f.text_field :phone_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email, "メールアドレス" %><br />
+    <%= f.email_field :email %>
+  </div>
+
+　<div>
+    <%= f.label :profile_image, "プロフィール画像" %><br />
+    <%= f.attachment_field :profile_image %>
+  </div>
+
+  <div>
+    <%= f.label :background_image, "背景画像" %><br />
+    <%= f.attachment_field :background_image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :introduction, "自己紹介" %><br />
+    <%= f.text_field :introduction %>
+  </div>
+
+  <div class="radio-button">
+    <%= f.label "会員ステータス" %><br />
+      <%= f.radio_button :is_deleted, false %>　<%= f.label :is_deleted, "有効", value: false %>
+      <%= f.radio_button :is_deleted, true %>　<%= f.label :is_deleted, "退会", value: true %>
+  </div>
+
+  <div>
+    <%= f.submit '変更を保存', class: 'btn btn-success' %>
+  </div>
+
+<% end %>
+
+<div><%= link_to "プロフィールへ戻る", admins_user_path(@user) %></div>
