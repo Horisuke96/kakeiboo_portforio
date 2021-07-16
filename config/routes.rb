@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   namespace :admins do
     resources :users, only: [:index, :show, :edit, :update]
     resources :expense_types, only: [:index, :create, :edit, :update, :destroy]
+    resources :income_types, only: [:index, :create, :edit, :update, :destroy]
   end
 
 # User
