@@ -1,6 +1,6 @@
 <div>家計boo</div>
 <% if user_signed_in? %>
-  <div>こんにちは</div>
+  <div>こんにちはユーザーさん</div>
 <% elsif admin_signed_in? %>
   <div>こんにちは管理者さん</div>
 <% else %>
@@ -18,8 +18,8 @@
   <div class="d-flex">
     <div class="float"><%= link_to 'Products', new_user_session_path, class: 'nav-link text-dark' %></div>
     <div class="float"><%= link_to 'Users', admins_users_path, class: 'nav-link text-dark' %></div>
-    <div class="float"><%= link_to 'Orders', new_user_session_path, class: 'nav-link text-dark' %></div>
-    <div class="float"><%= link_to 'Genres', new_user_session_path, class: 'nav-link text-dark' %></div>
+    <div class="float"><%= link_to '支出カテゴリ', admins_expense_types_path, class: 'nav-link text-dark' %></div>
+    <div class="float"><%= link_to '収入カテゴリ', admins_expense_types_path, class: 'nav-link text-dark' %></div>
     <div class="float"><%= link_to 'Log out', destroy_admin_session_path,method: :delete, class: 'nav-link text-dark' %></div>
   </div>
 <% else %>

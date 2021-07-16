@@ -1,0 +1,18 @@
+<h1>カテゴリ一覧</h1>
+<div class="form-group">
+      <%= form_with model:[:admins, @expense_type], local: true do |f| %>
+        <tr>
+          <th>支出カテゴリ名</th>
+          <th><%= f.text_field :type_name %></th>
+          <th><%= f.submit '新規登録', class: 'btn btn-success' %></th>
+        </tr>
+        <% end %>
+    </div>
+
+    <% @expense_types.each do |type| %>
+      <tr>
+        <td><%= type.type_name %></td>
+        <td><%= link_to "編集する", edit_admins_expense_type_path(type), class:'btn btn-success' %></td>
+        <td><%= link_to "削除する", admins_expense_type_path(type), method: :delete, class:'btn btn-success' %></td>
+      </tr>
+      <% end %>

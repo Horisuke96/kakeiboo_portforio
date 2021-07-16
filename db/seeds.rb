@@ -9,7 +9,7 @@
 
 require 'faker'
 
-200.times do |n|
+20.times do |n|
   sample_last_name = Gimei.last.kanji
   sample_last_kana = Gimei.last.katakana
   sample_first_name = Gimei.first.kanji
