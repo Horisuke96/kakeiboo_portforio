@@ -1,0 +1,7 @@
+<%= form_with model: [:admins, @expense_type], local: true do |f| %>
+        <div>
+          <th>ジャンル名</th>
+          <th><%= f.text_field :type_name %></th>
+          <th><%= f.submit "変更を保存", class:'btn btn-success' %></th>
+        </div>
+          <% end %>
