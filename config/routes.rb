@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get "/about" => "users/homes#about"
 
   scope module: :users do
+    resources :posts, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   end
 
 

@@ -7,7 +7,7 @@ class Admins::IncomeTypesController < ApplicationController
   def create
     @income_type = IncomeType.new(params_income_type)
     if @income_type.save
-      flash[:notice] = "支出カテゴリを追加しました"
+      flash[:notice] = "収入カテゴリを追加しました"
       redirect_to admins_income_types_path
     else
       render :index
@@ -21,7 +21,7 @@ class Admins::IncomeTypesController < ApplicationController
   def update
     @income_type = IncomeType.find(params[:id])
     if @income_type.update(params_income_type)
-      flash[:success] = "支出カテゴリを変更しました"
+      flash[:success] = "収入カテゴリを変更しました"
       redirect_to admins_income_types_path
     else
       render :edit
@@ -31,7 +31,7 @@ class Admins::IncomeTypesController < ApplicationController
   def destroy
     @income_type = IncomeType.find(params[:id])
     if @income_type.destroy
-      flash[:alert] = "支出カテゴリを削除しました"
+      flash[:alert] = "収入カテゴリを削除しました"
       redirect_to admins_income_types_path
     else
       @income_types = IncomeType.all

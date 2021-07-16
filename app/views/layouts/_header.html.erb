@@ -11,7 +11,7 @@
   <div class="d-flex">
     <div class="float"><%= link_to 'My page', new_user_session_path, class: 'nav-link text-dark' %></div>
     <div class="float"><%= link_to 'Products', new_user_session_path, class: 'nav-link text-dark' %></div>
-    <div class="float"><%= link_to 'Cart', new_user_session_path, class: 'nav-link text-dark' %></div>
+    <div class="float"><%= link_to '投稿', posts_path, class: 'nav-link text-dark' %></div>
     <div class="float"><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %></div>
   </div>
 <% elsif admin_signed_in? %>
