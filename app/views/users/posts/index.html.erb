@@ -1,0 +1,12 @@
+<h1>投稿一覧</h1>
+<% @posts.each do |post| %>
+  <div>
+    <%= link_to post_path(post) do %>
+      <%= attachment_image_tag post, :post_image, size: "150x150", fallback: "kominka.jpg" %>
+    <% end %>
+    <p>プロフィール画像<%= attachment_image_tag post.user, :profile_image, size: "100x100", fallback: "sample_kakeiboo.jpg" %></p>
+    <p>タイトル：<%= post.title %></p>
+    <p>説明：<%= post.body %></p>
+    <p>ユーザーネーム：<%= full_name(post.user) %></p>
+  </div>
+<% end %>
