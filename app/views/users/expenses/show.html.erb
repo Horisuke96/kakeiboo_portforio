@@ -1,0 +1,12 @@
+<h1>記録詳細</h1>
+<div>
+  <%= @expense.amount %>
+  <%= @expense.expense_type_id.expense_type_name %>
+  <%= @expense.date %>
+  <%= @expense.note %>
+  <%= attachment_image_tag @expense, :image, size: "100x100", fallback: "kominka.jpg" %>
+</div>
+
+<%= link_to "編集", edit_expense_path(@expense) %>
+<%= link_to "削除", expense_path(@expense), method: :delete %>
+<% end %>

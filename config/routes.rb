@@ -25,6 +25,12 @@ Rails.application.routes.draw do
 
   scope module: :users do
     resources :posts, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+    resources :expenses, only: [:new, :create, :edit, :update, :destroy] do
+      collection do
+        get :daily
+        get :monthly
+      end
+    end
   end
 
 
