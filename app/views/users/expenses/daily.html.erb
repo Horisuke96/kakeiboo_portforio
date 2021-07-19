@@ -1,2 +1,43 @@
-<h1>Users::Expenses#daily</h1>
-<p>Find me in app/views/users/expenses/daily.html.erb</p>
+
+<%= link_to "前の月のリンク",daily_expenses_path(month:@month.prev_month) %>
+
+
+
+<%= link_to "次の月のリンク",daily_expenses_path(month:@month.next_month) %>
+
+
+<table>
+  <thead>
+    <tr>
+      <td>日付</td>
+      <td>カテゴリ</td>
+      <td>金額</td>
+      <td>メモ</td>
+      <td>写真件数</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @expenses.each do |expense| %>
+      <tr>
+        <td><%= expense.date %></td>
+        <td><%= expense.expense_type.type_name %></td>
+        <td><%= expense.amount %>円</td>
+        <td><%= expense.note %></td>
+        <td>写真　有り　無し</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<table>
+  <tr>集計結果</tr>
+  <tr>期間</tr>
+  <tr>
+    <td>支出合計</td>
+    <td>０００円</td>
+  </tr>
+  <tr>
+    <td>収入合計</td>
+    <td>000円</td>
+  </tr>
+</table>
