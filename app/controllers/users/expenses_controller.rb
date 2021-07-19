@@ -8,14 +8,14 @@ class Users::ExpensesController < ApplicationController
     @expense = Expense.new(params_expense)
     @expense.user_id = current_user.id
     if @expense.save
-      redirect_to expenses_path(@expense)
+      redirect_to expense_path(@expense)
     else
       render :new
     end
   end
 
   def show
-    @expense = Expense.find(params_expense)
+    @expense = Expense.find(params[:id])
   end
 
   def daily
@@ -27,17 +27,17 @@ class Users::ExpensesController < ApplicationController
   def edit
     @expense = Expense.find(params[:id])
     if @expense.user == current_user
-      redirect_to expenses_path(@expense)
-    else
       render "edit"
+    else
+      redirect_to expense_path(@expense)
     end
   end
 
   def update
-    @post = Post.find(params[:id])
-    if @post.update(params_expense)
+    @expense = Expense.find(params[:id])
+    if @expense.update(params_expense)
       flash[:success] = "支出を変更しました"
-      redirect_to expenses_path
+      redirect_to expense_path(@expense)
     else
       render :edit
     end
@@ -47,7 +47,7 @@ class Users::ExpensesController < ApplicationController
     @expense = Expense.find(params[:id])
     if @expense.destroy
       flash[:alert] = "支出を削除しました"
-      redirect_to expenses_path
+      redirect_to expense_path
     else
       @expense = Expense.all
       render :index

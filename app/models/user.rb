@@ -8,5 +8,6 @@ class User < ApplicationRecord
   attachment :background_image
 
   has_many :posts, dependent: :destroy
+  has_many :expenses, dependent: :destroy
 
 end

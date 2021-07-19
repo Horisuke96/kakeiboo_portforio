@@ -1,3 +1,8 @@
 class Expense < ApplicationRecord
-    attachment :image
+
+  belongs_to :user
+  belongs_to :expense_type
+
+
+  attachment :image
 end

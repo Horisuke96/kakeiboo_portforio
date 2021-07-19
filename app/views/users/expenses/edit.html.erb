@@ -1,0 +1,32 @@
+<h1>支出記録編集</h1>
+<%= form_with model:[@expense], local: true do |f| %>
+  <div class="field">
+    <%= f.label :amount, "金額" %><br />
+    <%= f.number_field :amount %>円<br />
+  </div>
+
+  <div class="field">
+    <%= f.label :expense_type_id, "支出カテゴリ選択" %><br />
+    <%= f.collection_select :expense_type_id, ExpenseType.all, :id, :type_name, prompt: "選択してください" %><br />
+  </div>
+
+  <div class="field">
+    <%= f.label :date, "日付" %>
+    <%= f.date_field :date, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :note, "メモ" %>
+    <%= f.text_field :note, maxlength: 100 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image, "画像" %>
+    <%= f.attachment_field :image %>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.submit "編集する" %>
+  </div>
+<% end %>
