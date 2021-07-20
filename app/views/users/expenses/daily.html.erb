@@ -1,8 +1,5 @@
-
+<% provide(:title, "日毎のデータ") %>
 <%= link_to "前の月のリンク",daily_expenses_path(month:@month.prev_month) %>
-
-
-
 <%= link_to "次の月のリンク",daily_expenses_path(month:@month.next_month) %>
 
 
