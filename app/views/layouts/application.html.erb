@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!--後ほどfull titleメソッド追加-->
-    <title>Kakeiboo</title>
+    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,6 +11,11 @@
 
   <body>
     <%= render 'layouts/header' %>
-    <%= yield %>
+    <div class="container">
+      <div id="flash">
+        <%= render "layouts/flash" %>
+      </div>
+      <%= yield %>
+    </div>
   </body>
 </html>

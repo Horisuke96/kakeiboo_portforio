@@ -1,2 +1,59 @@
-<h1>Users::Expenses#daily</h1>
-<p>Find me in app/views/users/expenses/daily.html.erb</p>
+<% provide(:title, "日毎のデータ") %>
+
+<div class="row">
+  <div class="col-md-10 offset-md-1">
+    <div class="">
+      <%= link_to "", daily_expenses_path(month:@month.prev_month), class: "fas fa-angle-double-left fa-3x" %>
+
+
+
+      <%= link_to "", daily_expenses_path(month:@month.next_month), class: "fas fa-angle-double-right fa-3x" %>
+    </div>
+
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">日付</th>
+        <th scope="col">カテゴリ</th>
+        <th scope="col">金額</th>
+        <th scope="col">メモ</th>
+        <th scope="col">写真</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @expenses.each do |expense| %>
+        <tr>
+          <td><%= expense.date %></td>
+          <td><%= expense.expense_type.type_name %></td>
+          <td><%= expense.amount %>円</td>
+          <td><%= expense.note %></td>
+          <td>写真　有り　無し</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <table class="table table-bordered mt-5">
+    <thead class="thead-light">
+      <tr>
+        <th colspan="2">集計結果</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>期間</td>
+        <td><div class="text-right">YYYY年MM月〜YYYY年MM月</div></td>
+      </tr>
+      <tr>
+        <td>支出合計</td>
+        <td><div class="text-right">000円</div></td>
+      </tr>
+      <tr>
+        <td>収入合計</td>
+        <td><div class="text-right">000円</div></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>

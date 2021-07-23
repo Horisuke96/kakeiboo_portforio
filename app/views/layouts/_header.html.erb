@@ -1,32 +1,75 @@
-<div>家計boo</div>
-<% if user_signed_in? %>
-  <div>こんにちはユーザーさん</div>
-<% elsif admin_signed_in? %>
-  <div>こんにちは管理者さん</div>
-<% else %>
-  <div>こんにちはゲストさん</div>
-<% end %>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- タイトル -->
+  <a class="navbar-brand" href="/"><%= image_tag('top_logo3.png', size: "125x100") %></a>
+  <!-- ハンバーガーメニュー -->
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <!-- ナビゲーションメニュー -->
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+    <ul class="navbar-nav">
+      <!--ユーザーがログインしている時-->
+      <% if user_signed_in? %>
+        <li class="nav-item ">
+          <a class="nav-link">ようこそ、<%= full_name(current_user) %>さん！</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            記録する
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to '支出を記録する', new_expense_path, class: 'dropdown-item' %>
+            <%= link_to '収入を記録する', new_expense_path, class: 'dropdown-item' %>
+            <%= link_to '貯蓄を記録する', new_expense_path, class: 'dropdown-item' %>
+          </div>
+        </li>
+        <li class="nav-item ">
+          <%= link_to '履歴を確認する', daily_expenses_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to '目標を共有する', posts_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link">みんなの目標</a>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+        </li>
+      <!--管理者がログインしている時-->
+      <% elsif admin_signed_in? %>
+        <li class="nav-item ">
+          <a class="nav-link">利用者一覧</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link">投稿一覧</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link">支出カテゴリ</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link">収入カテゴリ</a>
+        </li>
+        <li class="nav-item ">
+          <%= link_to 'Log out', destroy_admin_session_path, method: :delete, class: 'nav-link' %>
+        </li>
+      <!--誰もログインしていない時-->
+      <% else %>
+        <li class="nav-item ">
+          <%= link_to 'ログイン', new_user_session_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item ">
+          <%= link_to '新規登録', new_user_registration_path, class: 'nav-link' %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 
-<% if user_signed_in? %>
-  <div class="d-flex">
-    <div class="float"><%= link_to 'My page', new_user_session_path, class: 'nav-link text-dark' %></div>
-    <div class="float"><%= link_to 'Products', new_user_session_path, class: 'nav-link text-dark' %></div>
-    <div class="float"><%= link_to '投稿', posts_path, class: 'nav-link text-dark' %></div>
-    <div class="float"><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %></div>
-  </div>
-<% elsif admin_signed_in? %>
-  <div class="d-flex">
-    <div class="float"><%= link_to 'Products', new_user_session_path, class: 'nav-link text-dark' %></div>
-    <div class="float"><%= link_to 'Users', admins_users_path, class: 'nav-link text-dark' %></div>
-    <div class="float"><%= link_to '支出カテゴリ', admins_expense_types_path, class: 'nav-link text-dark' %></div>
-    <div class="float"><%= link_to '収入カテゴリ', admins_income_types_path, class: 'nav-link text-dark' %></div>
-    <div class="float"><%= link_to 'Log out', destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %></div>
-  </div>
-<% else %>
-  <div class="d-flex">
-    <div class="float"><%= link_to 'About', new_user_session_path, class: 'nav-link text-dark' %></div>
-    <div class="float"><%= link_to 'Products', new_user_session_path, class: 'nav-link text-dark' %></div>
-    <div class="float"><%= link_to 'Sign up', new_user_registration_path, class: 'nav-link text-dark' %></div>
-    <div class="float"><%= link_to 'Login', new_user_session_path, class: 'nav-link text-dark'%></div>
-  </div>
-<% end %>
+</nav>
