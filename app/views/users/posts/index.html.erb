@@ -1,4 +1,10 @@
 <div class="row">
+  <div class="col-md-12">
+    <div style="background:transparent !important" class="jumbotron text-center">
+      <h2 class="jumbotron-heading">みんなの目標タイムライン</h2>
+      <p class="lead text-muted">皆さんの貯蓄にまつわる目標を見てみましょう！</p>
+    </div>
+  </div>
   <% @posts.each do |post| %>
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
@@ -7,10 +13,18 @@
         <% end %>
         <div class="card-body">
           <h5 class="card-title"><%= post.title %></h5>
-          <p class="card-text"><%= post.body %></p>
+          <p class="card-text text-truncate"><%= post.body %></p>
         </div>
-        <div class="card-body">
-          <p>ユーザーネーム：<%= full_name(post.user) %></p>
+        <div class="card-body d-flex align-items-center">
+          <div class="post-user">
+            <div class=""><%= attachment_image_tag(post.user, :profile_image, size: "50x50", fallback: "sample_kakeiboo.jpg", class: "rounded-circle" ) %></div>
+            <div class=""><%= full_name(post.user) %></div>
+          </div>
+          <div class="far fa-heart fa-lg ml-4"></div>
+          <div class="fas fa-comment fa-lg ml-4"></div>
+        </div>
+        <div class="card-footer text-muted text-right">
+          2 days ago
         </div>
       </div>
     </div>
