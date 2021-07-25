@@ -31,7 +31,13 @@ Rails.application.routes.draw do
         get :monthly
       end
     end
-  end
 
+    resources :users, only: [:show, :edit, :update] do
+  		member do
+  	     get "quit"
+  	     patch "out"
+  	  end
+  	end
+  end
 
   end
