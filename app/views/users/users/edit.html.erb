@@ -48,9 +48,12 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "編集内容を保存", class: 'btn btn-success btn-lg btn-block mb-5' %>
+        <%= f.submit "編集内容を保存", class: 'btn btn-success btn-lg btn-block mb-1' %>
       </div>
     <% end %>
+    <div class="quit-link">
+      <%= link_to "退会する", quit_user_path, class: "btn btn-secondary btn-block mb-4" %>
+    </div>
     <div><%= link_to "アカウント情報へ戻る", user_path(@user) %></div>
   </div>
 </div>

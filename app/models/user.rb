@@ -10,4 +10,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :expenses, dependent: :destroy
 
+  def active_for_authentication?
+    super && (self.is_deleted == false)
+  end
 end
