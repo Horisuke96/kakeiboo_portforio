@@ -21,6 +21,9 @@
         <li class="nav-item ">
           <a class="nav-link">ようこそ、<%= full_name(current_user) %>さん！</a>
         </li>
+        <li class="nav-item ">
+          <%= link_to 'マイページ', user_path(current_user), class: 'nav-link' %>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             記録する
@@ -35,10 +38,10 @@
           <%= link_to '履歴を確認する', daily_expenses_path, class: 'nav-link' %>
         </li>
         <li class="nav-item">
-          <%= link_to '目標を共有する', posts_path, class: 'nav-link' %>
+          <%= link_to '目標を共有する', new_post_path, class: 'nav-link' %>
         </li>
-        <li class="nav-item ">
-          <a class="nav-link">みんなの目標</a>
+        <li class="nav-item">
+          <%= link_to 'みんなの目標', posts_path, class: 'nav-link' %>
         </li>
         <li class="nav-item">
           <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
@@ -46,19 +49,19 @@
       <!--管理者がログインしている時-->
       <% elsif admin_signed_in? %>
         <li class="nav-item ">
-          <a class="nav-link">利用者一覧</a>
+          <%= link_to '利用者一覧', admins_users_path, class: 'nav-link' %>
         </li>
         <li class="nav-item ">
-          <a class="nav-link">投稿一覧</a>
+          <%= link_to '投稿一覧', admins_expense_types_path, class: 'nav-link' %>
         </li>
         <li class="nav-item ">
-          <a class="nav-link">支出カテゴリ</a>
+          <%= link_to '支出カテゴリ', admins_expense_types_path, class: 'nav-link' %>
         </li>
         <li class="nav-item ">
-          <a class="nav-link">収入カテゴリ</a>
+          <%= link_to '収入カテゴリ', admins_income_types_path, class: 'nav-link' %>
         </li>
         <li class="nav-item ">
-          <%= link_to 'Log out', destroy_admin_session_path, method: :delete, class: 'nav-link' %>
+          <%= link_to '管理者ログアウト', destroy_admin_session_path, method: :delete, class: 'nav-link' %>
         </li>
       <!--誰もログインしていない時-->
       <% else %>

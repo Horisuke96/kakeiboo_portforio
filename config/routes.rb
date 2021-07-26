@@ -24,7 +24,10 @@ Rails.application.routes.draw do
   get "/about" => "users/homes#about"
 
   scope module: :users do
-    resources :posts, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+    resources :posts, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+      resource :likes, only: [:create, :destroy]
+    end
+
     resources :expenses, only: [:new, :create, :show, :edit, :update, :destroy] do
       collection do
         get :daily
@@ -38,6 +41,8 @@ Rails.application.routes.draw do
   	     patch "out"
   	  end
   	end
+
+
   end
 
   end
