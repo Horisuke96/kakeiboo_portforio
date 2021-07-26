@@ -28,15 +28,9 @@
             <div class="fas fa-edit fa-lg ml-4 float-right"></div>
           <% end %>
         <% else %>
-          <% if current_user.liked_by?(@post.id) %>       <!--すでにいいねしているか確認-->
-            <%= link_to post_likes_path(current_user.likes.find_by(post: @post)), method: :delete do %>
-              <div class="fas fa-heart fa-lg ml-4 float-right"></div>
-            <% end %>
-          <% else %>
-            <%= link_to post_likes_path(@post), method: :post do %>
-              <div class="far fa-heart fa-lg ml-4 float-right"></div>
-            <% end %>
-          <% end %>
+          <div id="likes_buttons<%= @post.id %>">
+            <%= render 'views/users/likes/likebtn', locals: {post: @post } %>
+          </div>
         <% end %>
       </div>
     </div>

@@ -20,7 +20,9 @@
             <div class=""><%= attachment_image_tag(post.user, :profile_image, size: "50x50", fallback: "sample_kakeiboo.jpg", class: "rounded-circle" ) %></div>
             <div class=""><%= full_name(post.user) %></div>
           </div>
-          <div class="far fa-heart fa-lg ml-4"></div>
+          <div id="likes_buttons<%= post.id %>">
+            <%= render 'likes/likebtn', locals: { post: post } %>
+          </div>
           <div class="fas fa-comment fa-lg ml-4"></div>
         </div>
         <div class="card-footer text-muted text-right">
