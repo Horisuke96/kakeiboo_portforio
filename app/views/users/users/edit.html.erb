@@ -1,71 +1,57 @@
 
-<% provide(:title, "アカウント情報") %>
+<% provide(:title, "アカウント情報編集") %>
 <div class="row">
 	<div class="col-md-10 offset-md-1">
 		<h2 class="text-center">アカウント情報編集</h2>
-	  <%= form_with(model: @user, url:user_path(@user), local: true ,method: :put) do |f| %>
-    <div>会員ID</div>
-    <div><%= @user.id %></div>
-
-    <div class="field">
-      <%= f.label :last_name, "姓" %><br />
-      <%= f.text_field :last_name %><br />
-      <%= f.label :first_name, "名" %><br />
-      <%= f.text_field :first_name %><br />
-    </div>
-
-    <div class="field">
-      <%= f.label :kana_last_name, "セイ" %><br />
-      <%= f.text_field :kana_last_name %><br />
-      <%= f.label :kana_first_name, "メイ" %><br />
-      <%= f.text_field :kana_first_name %><br />
-    </div>
-
-    <div class="field">
-      <%= f.label :postal_code, "郵便番号" %><br />
-      <%= f.text_field :postal_code %>
-    </div>
-
-    <div class="field">
-      <%= f.label :address, "住所" %><br />
-      <%= f.text_field :address %>
-    </div>
-
-    <div class="field">
-      <%= f.label :phone_number, "電話番号" %><br />
-      <%= f.text_field :phone_number %>
-    </div>
-
-    <div class="field">
-      <%= f.label :email, "メールアドレス" %><br />
-      <%= f.email_field :email %>
-    </div>
-
-  　<div>
+    <%= form_with(model: @user, url:user_path(@user), local: true ,method: :put) do |f| %>
+      <div class="form-group">
       <%= f.label :profile_image, "プロフィール画像" %><br />
       <%= f.attachment_field :profile_image %>
-    </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :background_image, "背景画像" %><br />
+        <%= f.attachment_field :background_image %>
+      </div>
+      <div class="form-group">
+        <%= f.label :introduction, "自己紹介" %><br />
+        <%= f.text_area :introduction, autofocus: true, class: "form-control" %>
+      </div>
+      <div class="form-row">
+        <div class="form-group col">
+          <%= f.label :last_name, "姓" %><br />
+          <%= f.text_field :last_name, class: "form-control" %><br />
+          <%= f.label :kana_last_name, "セイ" %><br />
+          <%= f.text_field :kana_last_name, class: "form-control" %><br />
+        </div>
+        <div class="form-group col">
+          <%= f.label :first_name, "名" %><br />
+          <%= f.text_field :first_name, class: "form-control" %><br />
+          <%= f.label :kana_first_name, "メイ" %><br />
+          <%= f.text_field :kana_first_name, class: "form-control" %><br />
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :postal_code, "郵便番号" %><br />
+        <%= f.text_field :postal_code, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :address, "住所" %><br />
+        <%= f.text_field :address, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :phone_number, "電話番号" %><br />
+        <%= f.text_field :phone_number, class: "form-control" %>
+      </div>
+      <div class="form-group mb-5">
+        <%= f.label :email, "メールアドレス" %><br />
+        <%= f.email_field :email, autocomplete: "email", class: "form-control" %>
+      </div>
 
-    <div>
-      <%= f.label :background_image, "背景画像" %><br />
-      <%= f.attachment_field :background_image %>
-    </div>
+      <div class="actions">
+        <%= f.submit "編集内容を保存", class: 'btn btn-success btn-lg btn-block mb-5' %>
+      </div>
+    <% end %>
+    <div><%= link_to "アカウント情報へ戻る", user_path(@user) %></div>
+  </div>
+</div>
 
-    <div class="field">
-      <%= f.label :introduction, "自己紹介" %><br />
-      <%= f.text_field :introduction %>
-    </div>
-
-    <div class="radio-button">
-      <%= f.label "会員ステータス" %><br />
-        <%= f.radio_button :is_deleted, false %>　<%= f.label :is_deleted, "有効", value: false %>
-        <%= f.radio_button :is_deleted, true %>　<%= f.label :is_deleted, "退会", value: true %>
-    </div>
-
-    <div>
-      <%= f.submit '変更を保存', class: 'btn btn-success' %>
-    </div>
-
-  <% end %>
-
-  <div><%= link_to "アカウント情報へ戻る", user_path(@user) %></div>
