@@ -1,0 +1,10 @@
+<h1>支出記録詳細</h1>
+<div>
+  <%= @deposit.amount %>円
+  <%= @deposit.date %>
+  <%= @deposit.note %>
+  <%= attachment_image_tag @deposit, :image, size: "100x100", fallback: "kominka.jpg" %>
+</div>
+
+<%= link_to "編集", edit_deposit_path(@deposit) %>
+<%= link_to "削除", deposit_path, method: :delete %>

@@ -43,6 +43,13 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :deposits, only: [:new, :create, :show, :edit, :update, :destroy] do
+      collection do
+        get :daily
+        get :monthly
+      end
+    end
+
     resources :users, only: [:show, :edit, :update] do
   		member do
   	     get "quit"
