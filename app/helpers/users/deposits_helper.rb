@@ -1,0 +1,2 @@
+module Users::DepositsHelper
+end

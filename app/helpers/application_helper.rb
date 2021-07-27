@@ -18,4 +18,14 @@ module ApplicationHelper
     user.kana_last_name + user.kana_first_name
   end
 
+  # 合計金額の計算
+  def total_amount(totals)
+    amount = 0
+    totals.each do |total|
+      amount  +=  total.amount
+    end
+    return amount
+  end
+
+
 end

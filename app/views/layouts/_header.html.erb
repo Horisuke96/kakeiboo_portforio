@@ -31,11 +31,18 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <%= link_to '支出を記録する', new_expense_path, class: 'dropdown-item' %>
             <%= link_to '収入を記録する', new_income_path, class: 'dropdown-item' %>
-            <%= link_to '貯蓄を記録する', new_expense_path, class: 'dropdown-item' %>
+            <%= link_to '貯蓄を記録する', new_deposit_path, class: 'dropdown-item' %>
           </div>
         </li>
-        <li class="nav-item ">
-          <%= link_to '履歴を確認する', daily_expenses_path, class: 'nav-link' %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            履歴を確認する
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to '支出', daily_expenses_path, class: 'dropdown-item' %>
+            <%= link_to '収入', daily_incomes_path, class: 'dropdown-item' %>
+            <%= link_to '貯蓄', daily_deposits_path, class: 'dropdown-item' %>
+          </div>
         </li>
         <li class="nav-item">
           <%= link_to '目標を共有する', new_post_path, class: 'nav-link' %>

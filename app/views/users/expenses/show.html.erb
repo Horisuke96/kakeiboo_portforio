@@ -1,11 +1,38 @@
-<h1>支出記録詳細</h1>
-<div>
-  <%= @expense.amount %>円
-  <%= @expense.expense_type.type_name %>
-  <%= @expense.date %>
-  <%= @expense.note %>
-  <%= attachment_image_tag @expense, :image, size: "100x100", fallback: "kominka.jpg" %>
+<div class="row">
+  <div class="col-md-12">
+    <h2 class="head-line text-center">支出記録詳細</h2>
+  </div>
+  <div class="col-md-6 offset-md-3">
+    <div class="card">
+      <table class="table">
+        <tr>
+          <td>金額</td>
+          <td><%= @expense.amount %>円</td>
+        </tr>
+        <tr>
+          <td>カテゴリ</td>
+          <td><%= @expense.expense_type.type_name %></td>
+        </tr>
+        <tr>
+          <td>日付</td>
+          <td><%= @expense.date %></td>
+        </tr>
+        <tr>
+          <td>メモ</td>
+          <td><%= @expense.note %></td>
+        </tr>
+      </table>
+      <div>
+        <%= attachment_image_tag @expense, :image, size: "300x300", fallback: "kakeiboo_icon.png", class: "bd-placeholder-img card-img-bottom" %>
+      </div>
+      <div class="d-flex">
+        <%= link_to expense_path, method: :delete do %>
+          <div class="fas fa-trash-alt fa-lg ml-4"></div>
+        <% end %>
+        <%= link_to edit_expense_path(@expense) do %>
+          <div class="fas fa-edit fa-lg ml-4"></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
-
-<%= link_to "編集", edit_expense_path(@expense) %>
-<%= link_to "削除", expense_path, method: :delete %>

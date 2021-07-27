@@ -22,8 +22,8 @@ class Users::IncomesController < ApplicationController
   def daily
     @month = params[:month] ? Date.parse(params[:month]) : Time.zone.today
     # 取得した時刻が含まれる月の範囲のデータを取得
-    @incomes = Income.where(date: @month.all_month)
-
+    @incomes = Income.where(date: @month.all_month, user_id: current_user)
+    @expenses = Expense.where(date: @month.all_month, user_id: current_user)
 
 
 
@@ -55,7 +55,7 @@ class Users::IncomesController < ApplicationController
     @income = Income.find(params[:id])
     if @income.destroy
       flash[:alert] = "支出を削除しました"
-      redirect_to income_path
+      redirect_to daily_incomes_path
     else
       @income = Income.all
       render :index

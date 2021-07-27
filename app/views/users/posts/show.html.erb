@@ -15,7 +15,7 @@
         <%= @post.body %>
       </div>
       <div class="post-image-show">
-        <%= attachment_image_tag @post, :post_image, fallback: "kominka.jpg",size: "500x500", class: "bd-placeholder-img card-img-bottom" %>
+        <%= attachment_image_tag @post, :post_image, fallback: "kakeiboo_icon.png",size: "500x500", class: "bd-placeholder-img card-img-bottom" %>
       </div>
       <div class="card-body">
 
@@ -29,7 +29,7 @@
           <% end %>
         <% else %>
           <div id="likes_buttons<%= @post.id %>">
-
+            <%= render partial: 'users/likes/like_btn', locals: { post: @post } %>
           </div>
         <% end %>
       </div>
@@ -38,7 +38,7 @@
     <div id="comments_area">
       <%= render partial: 'comment', locals: { comments: @comments } %>
     </div>
-    <div class="comment_form">
+    <div id="comment_form">
       <%= render partial: 'comment_form', locals: { comment: @comment, post: @post } %>
     </div>
 

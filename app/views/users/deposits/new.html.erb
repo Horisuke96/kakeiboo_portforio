@@ -1,28 +1,20 @@
 <div class="row">
   <div class="col-md-12">
-    <h2 class="head-line text-center"><i class="fas fa-wallet"></i>収入記録編集</h2>
+    <h2 class="head-line title_h2 text-center"><i class="fas fa-wallet"></i>貯蓄記録登録</h2>
   </div>
 
   <div class="col-md-6 offset-md-3">
-  <%= form_with model:[@income], local: true do |f| %>
+  <%= form_with model:[@deposit], local: true do |f| %>
     <div class="form-group">
       <%= f.label :amount, "金額" %>
       <div class="input-group">
         <div class="input-group-prepend">
           <span class="input-group-text">¥</span>
         </div>
-        <%= f.number_field :amount, class:"form-control", id: "own-income-paid-amount", min: 0, max: 9999999999, value: @income.amount, required: true %>
+        <%= f.number_field :amount, class:"form-control", id: "own-deposit-paid-amount", min: 0, max: 9999999999, value: @deposit.amount, required: true %>
       </div>
     </div>
 
-
-
-    <div class="form-group">
-      <%= f.label :income_type_id, "収入カテゴリ選択" %>
-      <div>
-        <%= f.collection_select :income_type_id, IncomeType.all, :id, :type_name, {}, required: true, class: "form-control" %>
-      </div>
-    </div>
 
     <div class="form-group">
       <%= f.label :date, "日付" %>
@@ -41,7 +33,7 @@
 
 
     <div class="form-group">
-      <%= f.submit "編集", class: "btn btn-primary btn-lg btn-block" %>
+      <%= f.submit "記録", class: "btn btn-primary btn-lg btn-block" %>
     </div>
   <% end %>
   </div>

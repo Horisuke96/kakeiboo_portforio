@@ -5,4 +5,5 @@ class Income < ApplicationRecord
 
   attachment :image
 
+
 end
