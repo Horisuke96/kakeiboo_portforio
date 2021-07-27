@@ -1,0 +1,12 @@
+<h1>支出記録詳細</h1>
+<div>
+  <%= @income.amount %>円
+  <%= @income.income_type.type_name %>
+  <%= @income.date %>
+  <%= @income.note %>
+  <%= attachment_image_tag @income, :image, size: "100x100", fallback: "kominka.jpg" %>
+</div>
+
+<%= link_to "編集", edit_income_path(@income) %>
+<%= link_to "削除", income_path, method: :delete %>
+
