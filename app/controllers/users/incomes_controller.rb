@@ -55,7 +55,7 @@ class Users::IncomesController < ApplicationController
     @income = Income.find(params[:id])
     if @income.destroy
       flash[:alert] = "支出を削除しました"
-      redirect_to income_path
+      redirect_to daily_incomes_path
     else
       @income = Income.all
       render :index

@@ -2,58 +2,60 @@
 
 <div class="row">
   <div class="col-md-10 offset-md-1">
-    <div class="">
+    <div class="d-flex mt-3 mb-3 mx-auto" style="width: 270px;">
       <%= link_to "", daily_incomes_path(month:@month.prev_month), class: "fas fa-angle-double-left fa-3x" %>
-
-
-
+      <h2 class="mt-1"><%= @month.strftime("%Y年%m月") %></h2>
       <%= link_to "", daily_incomes_path(month:@month.next_month), class: "fas fa-angle-double-right fa-3x" %>
     </div>
-
-
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col">日付</th>
-        <th scope="col">カテゴリ</th>
-        <th scope="col">金額</th>
-        <th scope="col">メモ</th>
-        <th scope="col">写真</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @incomes.each do |income| %>
+    <table class="table table-hover">
+      <thead>
         <tr>
-          <td><%= income.date %></td>
-          <td><%= income.income_type.type_name %></td>
-          <td><%= income.amount %>円</td>
-          <td><%= income.note %></td>
-          <td>写真　有り　無し</td>
+          <th scope="col">日付</th>
+          <th scope="col">カテゴリ</th>
+          <th scope="col">金額</th>
+          <th scope="col">メモ</th>
+          <th scope="col">写真</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @incomes.each do |income| %>
+          <tr onclick='window.location="<%= '/incomes/' + income.id.to_s %>"' role="link">
+            <td><%= income.date %></td>
+            <td><%= income.income_type.type_name %></td>
+            <td><%= income.amount %>円</td>
+            <td><%= income.note %></td>
+            <td>
+              <% if income.image.present? %>
+                写真　有り
+              <% else %>
+                写真　無し
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-  <table class="table table-bordered mt-5">
-    <thead class="thead-light">
-      <tr>
-        <th colspan="2">集計結果</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>期間</td>
-        <td><div class="text-right">YYYY年MM月〜YYYY年MM月</div></td>
-      </tr>
-      <tr>
-        <td>支出合計</td>
-        <td><div class="text-right">000円</div></td>
-      </tr>
-      <tr>
-        <td>収入合計</td>
-        <td><div class="text-right">000円</div></td>
-      </tr>
-    </tbody>
-  </table>
+    <table class="table table-bordered mt-5">
+      <thead class="thead-light">
+        <tr>
+          <th colspan="2">集計結果</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>期間</td>
+          <td><div class="text-right">YYYY年MM月〜YYYY年MM月</div></td>
+        </tr>
+        <tr>
+          <td>支出合計</td>
+          <td><div class="text-right">000円</div></td>
+        </tr>
+        <tr>
+          <td>収入合計</td>
+          <td><div class="text-right">000円</div></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

@@ -7,7 +7,7 @@
 
   <div class="field">
     <%= f.label :income_type_id, "支出カテゴリ選択" %><br />
-    <%= f.collection_select :income_type_id, incomeType.all, :id, :type_name, prompt: "選択してください" %><br />
+    <%= f.collection_select :income_type_id, IncomeType.all, :id, :type_name, prompt: "選択してください" %><br />
   </div>
 
   <div class="field">
