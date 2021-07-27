@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :users do
-    get 'post_comments/create'
-    get 'post_comments/destroy'
-  end
 # admin
   devise_for :admins, controllers: {
     sessions:       'admins/sessions',
@@ -34,6 +30,13 @@ Rails.application.routes.draw do
     end
 
     resources :expenses, only: [:new, :create, :show, :edit, :update, :destroy] do
+      collection do
+        get :daily
+        get :monthly
+      end
+    end
+
+    resources :incomes, only: [:new, :create, :show, :edit, :update, :destroy] do
       collection do
         get :daily
         get :monthly
