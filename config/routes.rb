@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :users do
+    get 'post_comments/create'
+    get 'post_comments/destroy'
+  end
 # admin
   devise_for :admins, controllers: {
     sessions:       'admins/sessions',
@@ -24,14 +28,26 @@ Rails.application.routes.draw do
   get "/about" => "users/homes#about"
 
   scope module: :users do
-    resources :posts, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+    resources :posts, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+      resource :likes, only: [:create, :destroy]
+      resources :post_comments, only: [:create, :destroy]
+    end
+
     resources :expenses, only: [:new, :create, :show, :edit, :update, :destroy] do
       collection do
         get :daily
         get :monthly
       end
     end
-  end
 
+    resources :users, only: [:show, :edit, :update] do
+  		member do
+  	     get "quit"
+  	     patch "out"
+  	  end
+  	end
+
+
+  end
 
   end

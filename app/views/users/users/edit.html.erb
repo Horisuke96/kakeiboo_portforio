@@ -1,0 +1,64 @@
+
+<% provide(:title, "アカウント情報編集") %>
+<div class="row">
+	<div class="col-md-10 offset-md-1">
+		<h2 class="text-center">アカウント情報編集</h2>
+    <%= form_with(model: @user, url:user_path(@user), local: true ,method: :put) do |f| %>
+      <div class="form-group">
+      <%= f.label :profile_image, "プロフィール画像" %><br />
+      <%= f.attachment_field :profile_image %>
+      </div>
+      <div class="form-group">
+        <%= f.label :background_image, "背景画像" %><br />
+        <%= f.attachment_field :background_image %>
+      </div>
+      <div class="form-group">
+        <%= f.label :nickname, "ニックネーム" %><br />
+        <%= f.text_field :nickname, autofocus: true, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :introduction, "自己紹介" %><br />
+        <%= f.text_area :introduction, class: "form-control" %>
+      </div>
+      <div class="form-row">
+        <div class="form-group col">
+          <%= f.label :last_name, "姓" %><br />
+          <%= f.text_field :last_name, class: "form-control" %><br />
+          <%= f.label :kana_last_name, "セイ" %><br />
+          <%= f.text_field :kana_last_name, class: "form-control" %><br />
+        </div>
+        <div class="form-group col">
+          <%= f.label :first_name, "名" %><br />
+          <%= f.text_field :first_name, class: "form-control" %><br />
+          <%= f.label :kana_first_name, "メイ" %><br />
+          <%= f.text_field :kana_first_name, class: "form-control" %><br />
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :postal_code, "郵便番号" %><br />
+        <%= f.text_field :postal_code, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :address, "住所" %><br />
+        <%= f.text_field :address, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :phone_number, "電話番号" %><br />
+        <%= f.text_field :phone_number, class: "form-control" %>
+      </div>
+      <div class="form-group mb-5">
+        <%= f.label :email, "メールアドレス" %><br />
+        <%= f.email_field :email, autocomplete: "email", class: "form-control" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "編集内容を保存", class: 'btn btn-success btn-lg btn-block mb-1' %>
+      </div>
+    <% end %>
+    <div class="quit-link">
+      <%= link_to "退会する", quit_user_path, class: "btn btn-secondary btn-block mb-4" %>
+    </div>
+    <div><%= link_to "アカウント情報へ戻る", user_path(@user) %></div>
+  </div>
+</div>
+

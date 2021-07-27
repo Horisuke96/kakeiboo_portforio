@@ -3,6 +3,7 @@
     <tr>
       <th>会員ID</th>
       <th>氏名</th>
+      <th>ニックネーム</th>
       <th>メールアドレス</th>
       <th>ステータス</th>
     </tr>
@@ -12,6 +13,7 @@
     <tr>
       <td><%= user.id %></td>
       <td><%= link_to full_name(user), admins_user_path(user) %></td>
+      <td><%= user.nickname %></td>
       <td><%= user.email %></td>
       <td>
         <% if user.is_deleted == true %>

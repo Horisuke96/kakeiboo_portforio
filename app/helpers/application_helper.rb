@@ -14,4 +14,8 @@ module ApplicationHelper
     user.last_name + user.first_name
   end
 
+  def kana_full_name(user)
+    user.kana_last_name + user.kana_first_name
+  end
+
 end

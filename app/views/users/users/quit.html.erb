@@ -1,0 +1,14 @@
+<% provide(:title, "退会ページ") %>
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <h1 class="text-center mt-5 mb-5">本当に退会しますか？</h1>
+    <div class="quit-msg text-center mb-5">
+      退会すると会員情報登録や、これまでの投稿が閲覧できなくなります。<br>
+      退会する場合は、「退会する」をクリックしてください。
+    </div>
+    <div class="row quit">
+      <%= link_to "退会しない", user_path, class: 'btn btn-primary btn-block' %>
+      <%= link_to "退会する", out_user_path, method: :PATCH, data: {confirm: "本当に退会してもよろしいですか？"}, class: "btn btn-danger btn-block" %>
+    </div>
+  </div>
+</div>
