@@ -29,10 +29,18 @@
           <% end %>
         <% else %>
           <div id="likes_buttons<%= @post.id %>">
-            <%= render 'views/users/likes/likebtn', locals: {post: @post } %>
+
           </div>
         <% end %>
       </div>
     </div>
+
+    <div id="comments_area">
+      <%= render partial: 'comment', locals: { comments: @comments } %>
+    </div>
+    <div class="comment_form">
+      <%= render partial: 'comment_form', locals: { comment: @comment, post: @post } %>
+    </div>
+
   </div>
 </div>
