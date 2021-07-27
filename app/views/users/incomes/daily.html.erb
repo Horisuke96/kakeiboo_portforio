@@ -45,15 +45,15 @@
       <tbody>
         <tr>
           <td>期間</td>
-          <td><div class="text-right">YYYY年MM月〜YYYY年MM月</div></td>
+          <td><div class="text-right"><%= @month.strftime("%Y年%m月") %></div></td>
         </tr>
         <tr>
           <td>支出合計</td>
-          <td><div class="text-right">000円</div></td>
+          <td><div class="text-right"><%= total_amount(@expenses) %>円</div></td>
         </tr>
         <tr>
           <td>収入合計</td>
-          <td><div class="text-right">000円</div></td>
+          <td><div class="text-right"><%= total_amount(@incomes) %>円</div></td>
         </tr>
       </tbody>
     </table>

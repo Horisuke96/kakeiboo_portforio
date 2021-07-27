@@ -22,8 +22,8 @@ class Users::IncomesController < ApplicationController
   def daily
     @month = params[:month] ? Date.parse(params[:month]) : Time.zone.today
     # 取得した時刻が含まれる月の範囲のデータを取得
-    @incomes = Income.where(date: @month.all_month)
-
+    @incomes = Income.where(date: @month.all_month, user_id: current_user)
+    @expenses = Expense.where(date: @month.all_month, user_id: current_user)
 
 
 

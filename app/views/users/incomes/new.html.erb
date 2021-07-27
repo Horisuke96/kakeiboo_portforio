@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12">
-    <h2 class="head-line title_h2 text-center"><i class="fas fa-wallet"></i>支出記録登録</h2>
+    <h2 class="head-line text-center"><i class="fas fa-wallet"></i>収入記録登録</h2>
   </div>
 
   <div class="col-md-6 offset-md-3">
@@ -18,7 +18,7 @@
 
 
     <div class="form-group">
-      <%= f.label :income_type_id, "支出カテゴリ選択" %>
+      <%= f.label :income_type_id, "収入カテゴリ選択" %>
       <div>
         <%= f.collection_select :income_type_id, @income_types, :id, :type_name, {}, required: true, class: "form-control" %>
       </div>
