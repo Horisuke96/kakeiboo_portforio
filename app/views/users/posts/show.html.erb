@@ -3,7 +3,7 @@
     <div class="card">
       <div class="post-user-box d-flex align-items-center">
         <div class="post-user">
-          <div class=""><%= attachment_image_tag(@post.user, :profile_image, size: "100x100", fallback: "sample_kakeiboo.jpg", class: "rounded-circle" ) %></div>
+          <div class=""><%= attachment_image_tag(@post.user, :profile_image, size: "100x100", fallback: "no_image_user.jpg", class: "rounded-circle" ) %></div>
           <div class="text-center"><%= @post.user.nickname %></div>
         </div>
       </div>

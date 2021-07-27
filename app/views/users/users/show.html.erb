@@ -8,11 +8,11 @@
 
 		<div class="card">
 		  <div class="">
-        <%= attachment_image_tag @user, :background_image, fallback: "kominka.jpg",size: "500x500", class: "bd-placeholder-img card-img-top" %>
+        <%= attachment_image_tag @user, :background_image, fallback: "kakeiboo_icon.png",size: "500x500", class: "bd-placeholder-img card-img-top" %>
       </div>
       <div class="post-user-box d-flex align-items-center mt-3 mb-3">
         <div class="post-user">
-          <div class=""><%= attachment_image_tag(@user, :profile_image, size: "100x100", fallback: "sample_kakeiboo.jpg", class: "rounded-circle" ) %></div>
+          <div class=""><%= attachment_image_tag(@user, :profile_image, size: "100x100", fallback: "no_image_user.jpg", class: "rounded-circle" ) %></div>
           <div class="text-center"><%= @user.nickname %></div>
         </div>
         <div class="card-body"><%= @user.introduction %></div>
