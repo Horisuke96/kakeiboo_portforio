@@ -13,7 +13,7 @@
       <div class="post-user-box d-flex align-items-center mt-3 mb-3">
         <div class="post-user">
           <div class=""><%= attachment_image_tag(@user, :profile_image, size: "100x100", fallback: "sample_kakeiboo.jpg", class: "rounded-circle" ) %></div>
-          <div class="text-center"><%= full_name(@user) %></div>
+          <div class="text-center"><%= @user.nickname %></div>
         </div>
         <div class="card-body"><%= @user.introduction %></div>
       </div>
@@ -23,7 +23,11 @@
 		<table class="table table-bordered" >
 			<tbody>
 				<tr>
-					<td class="info col-xs-2">氏名</td>
+					<td class="info col-xs-2">ニックネーム</td>
+					<td class="text-left"><%= @user.nickname %></td>
+				</tr>
+				<tr>
+					<td class="info">氏名</td>
 					<td class="text-left"><%= full_name(@user) %></td>
 				</tr>
 				<tr>

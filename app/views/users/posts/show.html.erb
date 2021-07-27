@@ -4,7 +4,7 @@
       <div class="post-user-box d-flex align-items-center">
         <div class="post-user">
           <div class=""><%= attachment_image_tag(@post.user, :profile_image, size: "100x100", fallback: "sample_kakeiboo.jpg", class: "rounded-circle" ) %></div>
-          <div class="text-center"><%= full_name(@post.user) %></div>
+          <div class="text-center"><%= @post.user.nickname %></div>
         </div>
       </div>
       <p class="text-right">投稿日時：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
@@ -18,8 +18,8 @@
         <%= attachment_image_tag @post, :post_image, fallback: "kominka.jpg",size: "500x500", class: "bd-placeholder-img card-img-bottom" %>
       </div>
       <div class="card-body">
-        <div class="fas fa-comment fa-lg ml-4 float-right"></div>
-        <div class="float-right"><%= @post.likes.count %></div>
+
+        <div class="fas fa-comment fa-lg ml-4 float-right"><%= @post.post_comments.count %></div>
         <% if @post.user_id == current_user.id %>
           <%= link_to post_path(@post), method: :delete do %>
             <div class="fas fa-trash-alt fa-lg ml-4 float-right"></div>

@@ -18,12 +18,13 @@
         <div class="card-body d-flex align-items-center">
           <div class="post-user">
             <div class=""><%= attachment_image_tag(post.user, :profile_image, size: "50x50", fallback: "sample_kakeiboo.jpg", class: "rounded-circle" ) %></div>
-            <div class=""><%= full_name(post.user) %></div>
+            <div class=""><%= post.user.nickname %></div>
           </div>
           <div id="likes_buttons<%= post.id %>">
 
           </div>
           <div class="fas fa-comment fa-lg ml-4"></div>
+          <%= post.post_comments.count %>
         </div>
         <div class="card-footer text-muted text-right">
           <%= post.created_at.strftime('%Y/%m/%d') %>
