@@ -18,7 +18,7 @@
         <%= attachment_image_tag @post, :post_image, fallback: "kakeiboo_icon.png",size: "500x500", class: "bd-placeholder-img card-img-bottom" %>
       </div>
       <div class="card-body">
-
+<h3 class="text-right mb-3">達成率<%= @post.achievement %>%</h3>
         <div class="fas fa-comment fa-lg ml-4 float-right"><%= @post.post_comments.count %></div>
         <% if @post.user_id == current_user.id %>
           <%= link_to post_path(@post), method: :delete do %>
