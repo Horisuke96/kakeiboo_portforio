@@ -1,7 +1,9 @@
-<%= form_with model: [:admins, @expense_type], local: true do |f| %>
-        <div>
-          <th>支出カテゴリ</th>
-          <th><%= f.text_field :type_name %></th>
-          <th><%= f.submit "変更を保存", class:'btn btn-success' %></th>
-        </div>
-          <% end %>
+<div class="col-md-12">
+  <%= form_with model: [:admins, @expense_type], local: true do |f| %>
+    <div>
+      <span>支出カテゴリ</span>
+      <span><%= f.text_field :type_name %></span>
+      <span><%= f.submit "変更を保存", class:'btn btn-success' %></span>
+    </div>
+  <% end %>
+</div>
