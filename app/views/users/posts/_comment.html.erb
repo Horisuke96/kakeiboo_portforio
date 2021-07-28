@@ -3,7 +3,7 @@
     <tr>
       <td>
       <%= link_to (post_comment.user) do %>
-        <%= attachment_image_tag(post_comment.user, :profile_image, size: "70x70", fallback: "sample_kakeiboo.jpg", class: "rounded-circle") %></p>
+        <%= attachment_image_tag(post_comment.user, :profile_image, size: "70x70", fallback: "no_image_user.jpeg", class: "rounded-circle") %></p>
         <%= post_comment.user.nickname%>
         <% end %>
       </td>

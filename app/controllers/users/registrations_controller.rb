@@ -3,7 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
    # 新規登録後のページ遷移
   def after_sign_up_path_for(resource)
-    user_path
+    user_path(@user)
   end
 
   # before_action :configure_sign_up_params, only: [:create]
