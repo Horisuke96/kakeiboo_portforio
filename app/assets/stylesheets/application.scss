@@ -19,7 +19,7 @@
 
 
 .top-image {
-  background-image: url("top-image.jpeg");
+  background-image: image-url("top-image.jpeg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -28,7 +28,7 @@
 }
 
 .problem-institution {
-  background-image: url("problem-institution.jpeg");
+  background-image: image-url("problem-institution.jpeg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -37,7 +37,7 @@
 }
 
 .description {
-  background-image: url("description.jpeg");
+  background-image: image-url("description.jpeg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -46,7 +46,7 @@
 }
 
 .attention {
-  background-image: url("attention.jpeg");
+  background-image: image-url("attention.jpeg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
