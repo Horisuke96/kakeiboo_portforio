@@ -38,8 +38,8 @@ end
 
 
 Admin.create!(
-   email: 'admin@admin.com',
-   password: 'adminadmin',
+   email: ENV['admin_mail'],
+   password: ENV['admin_pass']
 )
 
 ExpenseType.create!(
@@ -58,6 +58,15 @@ ExpenseType.create!(
       { type_name: "クルマ" },
       { type_name: "税金" },
       { type_name: "大型出費" },
+      { type_name: "その他" },
+    ]
+  )
+
+  IncomeType.create!(
+    [
+      { type_name: "お給料" },
+      { type_name: "ボーナス" },
+      { type_name: "臨時収入" },
       { type_name: "その他" },
     ]
   )
