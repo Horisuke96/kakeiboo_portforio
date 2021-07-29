@@ -1,4 +1,6 @@
 class Admins::IncomeTypesController < ApplicationController
+  before_action :authenticate_admin!
+
   def index
     @income_type = IncomeType.new
     @income_types = IncomeType.all

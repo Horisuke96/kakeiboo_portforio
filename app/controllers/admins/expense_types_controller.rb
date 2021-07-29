@@ -1,4 +1,6 @@
 class Admins::ExpenseTypesController < ApplicationController
+  before_action :authenticate_admin!
+
   def index
     @expense_type = ExpenseType.new
     @expense_types = ExpenseType.all
