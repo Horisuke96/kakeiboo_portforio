@@ -10,6 +10,11 @@ class Users::PostsController < ApplicationController
     @post.user_id = current_user.id
     if @post.save
       redirect_to post_path(@post)
+      # 画像認識機能
+      tags =Vision.get_image_data(@post.post_image)
+      tags.each do |tag|
+        @post.tags.create(name: tag)
+      end
     else
       render :new
     end

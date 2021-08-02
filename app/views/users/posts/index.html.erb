@@ -14,6 +14,9 @@
         <div class="card-body">
           <h5 class="card-title"><%= post.title %></h5>
           <p class="card-text text-truncate"><%= post.body %></p>
+          <% post.tags.each do |tag| %>
+            <span class="label"><%= tag.name %></span>
+          <% end %>
         </div>
         <div class="card-body d-flex align-items-center">
           <div class="post-user">
@@ -27,6 +30,7 @@
             <%= post.post_comments.count %>
           </div>
         </div>
+
         <div class="card-body text-right">達成率<%= post.achievement %>%</div>
         <div class="card-footer text-muted text-right">
           <%= post.created_at.strftime('%Y/%m/%d') %>
