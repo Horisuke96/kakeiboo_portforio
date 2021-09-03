@@ -42,7 +42,7 @@ class Users::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(params_post)
-      flash[:success] = "収入カテゴリを変更しました"
+      flash[:success] = "投稿内容を変更しました"
       redirect_to post_path
     else
       render :edit
