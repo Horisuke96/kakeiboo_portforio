@@ -2,8 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+.post-image {
+  height :200px;
+  object-fit: cover;
+}
 
 .post-image-show {
   height: 600px;
+  object-fit: contain;
 }
