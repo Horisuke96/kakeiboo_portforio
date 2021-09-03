@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    models:
+      post:
+    attributes:
+      post:
+        title: タイトル
+        post_image: 画像

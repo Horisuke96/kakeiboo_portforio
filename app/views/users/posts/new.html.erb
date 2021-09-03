@@ -5,6 +5,7 @@
 
   <div class="col-md-6 offset-md-3">
     <%= form_with model: [@post], local: true do |f| %>
+    <%= render 'layouts/error_msg', model: f.object %>
       <div class="form-group">
         <%= f.label :image, "紹介画像" %>
         <%= f.attachment_field :post_image %>
