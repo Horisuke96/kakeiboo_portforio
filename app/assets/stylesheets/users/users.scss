@@ -2,7 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.background_image{
+.background_image {
   height :400px;
+  object-fit: cover;
+}
+
+.mypage_image {
+  height :200px;
   object-fit: cover;
 }
